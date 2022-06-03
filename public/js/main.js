@@ -1,6 +1,7 @@
-let roommates = []
-let gastos = []
+const roommates = []
+const gastos = []
 let gastoEditing = null
+
 const getRoommates = async () => {
    const res = await fetch("http://localhost:3000/roommates")
    const data = await res.json()

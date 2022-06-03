@@ -5,11 +5,14 @@ html
       meta(http-equiv="X-UA-Compatible" content="IE=edge")
       meta(name="viewport", content="width=device-width, initial-scale=1")
       // CSS
-      link(rel='stylesheet', href='/css/styles.css')
-      title= "Layout Template"
+      include css.pug
 
-   body
-      block content
+      title= "Roommates"
+
+   body.p-4
+      block main
+      
 
       // JS
-      script(src='/js/main.js')
+      include scripts.pug
+      
