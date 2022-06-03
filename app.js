@@ -18,6 +18,16 @@ const app = express()
 /*=============================================
 =                 MIDDLEWARE                  =
 =============================================*/
+app.use(
+   "/bootstrap",
+   express.static(path.join(__dirname, "node_modules/bootstrap/dist"))
+)
+app.use(
+   "/fa",
+   express.static(
+      path.join(__dirname, "node_modules/@fortawesome/fontawesome-free")
+   )
+)
 app.use(express.static(path.join(__dirname, "public")))
 
 app.set("view engine", "pug")
