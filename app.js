@@ -5,6 +5,7 @@
 const express = require("express")
 const dotenv = require("dotenv").config()
 // Local Modules
+const indexRoute = require("./routes/index")
 const roommateRoute = require("./routes/roomate")
 const gastoRoute = require("./routes/gasto")
 // Core Modules
@@ -24,17 +25,17 @@ app.use(
    "/bootstrap",
    express.static(path.join(__dirname, "node_modules/bootstrap/dist"))
 )
+// Set JQuery path
+app.use(
+   "/jquery",
+   express.static(path.join(__dirname, "node_modules/jquery/dist"))
+)
 // Set Font-Awesome path
 app.use(
    "/fa",
    express.static(
       path.join(__dirname, "node_modules/@fortawesome/fontawesome-free")
    )
-)
-// Set JQuery path
-app.use(
-   "/jquery",
-   express.static(path.join(__dirname, "node_modules/jquery/dist"))
 )
 // Set Popper path
 app.use(
@@ -49,9 +50,7 @@ app.set("view engine", "pug")
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-app.get("/", (req, res) => {
-   res.render("index")
-})
+app.use("/", indexRoute)
 
 app.use("/roommate", roommateRoute)
 
