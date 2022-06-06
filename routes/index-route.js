@@ -4,7 +4,7 @@
 // 3rd party Modules
 const express = require("express")
 // local Modules
-const { renderIndex } = require("../controllers/index")
+const { renderIndex } = require("../controllers/index-controlller")
 
 /*=============================================
 =                  VARIABLES                  =

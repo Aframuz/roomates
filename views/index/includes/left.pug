@@ -2,10 +2,15 @@ div(class='col-4')
    div(class='border rounded p-2 m-auto p-4')
       h4 Roommates
       hr(class='bg-light w-25 mx-auto')
-      table(class='table')
-         thead(class='text-white')
+      table(class='table text-white')
+         thead
             th Nombre 
             th Debe 
             th Recibe 
-         tbody(id='roomates' class='text-white')
+         tbody(id='roomates')
+            each roommate in roomates
+               tr
+                  td roommate.name
+                  td(class='text-red') roommate.debt
+                  td(class='text-green') roommate.receive
       button(class='btn text-white mb-2' onclick='nuevoRoommate()') Agregar Random Roommate 

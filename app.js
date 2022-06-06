@@ -5,9 +5,9 @@
 const express = require("express")
 const dotenv = require("dotenv").config()
 // Local Modules
-const indexRoute = require("./routes/index")
-const roommateRoute = require("./routes/roomate")
-const gastoRoute = require("./routes/gasto")
+const indexRoute = require("./routes/index-route")
+const roommateRoute = require("./routes/roomate-route")
+const gastoRoute = require("./routes/gasto-route")
 // Core Modules
 const path = require("path")
 

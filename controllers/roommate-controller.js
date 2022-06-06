@@ -12,7 +12,7 @@ const insertRoommate = (req, res) => {
 }
 
 // GET getUsers route
-const showUsers = (req, res) => {
+const showRoommates = (req, res) => {
    // render view
    res.render("users", { users: userList })
 }

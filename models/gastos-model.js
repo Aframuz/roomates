@@ -7,7 +7,7 @@ const { Model } = require("./model")
 /*=============================================
 =                  VARIABLES                  =
 =============================================*/
-class RoommateDB extends Model {
+class GastoDB extends Model {
    constructor(name) {
       super(name)
    }
