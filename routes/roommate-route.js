@@ -4,7 +4,8 @@
 // 3rd party Modules
 const express = require("express")
 // local Modules
-const { insertRoommate } = require("../controllers/roommate-controller")
+const roomateController = require("../controllers/roommate-controller")
+const middleware = require("../middleware/get-rnd-user")
 
 /*=============================================
 =                  VARIABLES                  =
@@ -14,6 +15,9 @@ const router = express.Router()
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-router.route("/"), post(insertRoommate).get()
+router
+   .route("/")
+   .post(middleware.getRndUser, roomateController.addRoommate)
+   .get(roomateController.getRoommates)
 
 module.exports = router

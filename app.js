@@ -6,7 +6,7 @@ const express = require("express")
 const dotenv = require("dotenv").config()
 // Local Modules
 const indexRoute = require("./routes/index-route")
-const roommateRoute = require("./routes/roomate-route")
+const roommateRoute = require("./routes/roommate-route")
 const gastoRoute = require("./routes/gasto-route")
 // Core Modules
 const path = require("path")
@@ -45,6 +45,7 @@ app.use(
 // Set static files path
 app.use(express.static(path.join(__dirname, "public")))
 
+app.use(express.urlencoded({ extended: true }))
 app.set("view engine", "pug")
 
 /*=============================================
@@ -52,7 +53,8 @@ app.set("view engine", "pug")
 =============================================*/
 app.use("/", indexRoute)
 
-app.use("/roommate", roommateRoute)
+app.use("/roommates", roommateRoute)
+app.use("/gastos", gastoRoute)
 
 app.listen(PORT, () => {
    console.log(`Server is running on port ${PORT}`)

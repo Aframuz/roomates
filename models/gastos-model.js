@@ -12,3 +12,7 @@ class GastoDB extends Model {
       super(name)
    }
 }
+
+const gdb = new GastoDB("gastos")
+
+module.exports = { gdb }

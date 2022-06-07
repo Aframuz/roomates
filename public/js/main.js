@@ -54,14 +54,6 @@ const imprimir = async () => {
    }
 }
 
-const nuevoRoommate = () => {
-   fetch("http://localhost:3000/roommate", { method: "POST" })
-      .then((res) => res.json())
-      .then(() => {
-         imprimir()
-      })
-}
-
 const agregarGasto = async () => {
    const roommateSelected = $("#roommatesSelect").val()
    const descripcion = $("#descripcion").val()
@@ -109,3 +101,12 @@ const editGasto = (id) => {
 }
 
 imprimir()
+
+/*=============================================
+=               REAFACTORIING                 =
+=============================================*/
+const newRoommate = async () => {
+   console.log(`creating new roommate...`)
+   await fetch("/roommates", { method: "POST" })
+   window.location.reload()
+}

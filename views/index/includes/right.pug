@@ -9,9 +9,8 @@ div(class='col-4')
                th Comentario 
                th Monto
             tbody(id='gastos')
-               each gasto in gastos
+               each gasto in gastos 
                   tr
-                     td gasto.name
-                     td gasto.comment
-                     td gasto.amount
-             
+                     td= gasto.name
+                     td= gasto.comment
+                     td(class='text-red')= gasto.amount

@@ -1,0 +1,32 @@
+{
+   "roommates": [
+      {
+         "id": "nwsBdQ",
+         "name": "Mahdi",
+         "lastname": "Holmberg",
+         "debt": 0,
+         "receive": 0
+      },
+      {
+         "id": "Wy7c3a",
+         "name": "Cecilia",
+         "lastname": "Løvlien",
+         "debt": 0,
+         "receive": 0
+      },
+      {
+         "id": "1EqTnb",
+         "name": "Ege",
+         "lastname": "Ayaydın",
+         "debt": 0,
+         "receive": 0
+      },
+      {
+         "id": "no-j3G",
+         "name": "Umbertina",
+         "lastname": "Cardoso",
+         "debt": 0,
+         "receive": 0
+      }
+   ]
+}

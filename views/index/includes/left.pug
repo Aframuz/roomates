@@ -8,9 +8,10 @@ div(class='col-4')
             th Debe 
             th Recibe 
          tbody(id='roomates')
-            each roommate in roomates
+            each roommate in roommates
                tr
-                  td roommate.name
-                  td(class='text-red') roommate.debt
-                  td(class='text-green') roommate.receive
-      button(class='btn text-white mb-2' onclick='nuevoRoommate()') Agregar Random Roommate 
+                  td= `${roommate.name} ${roommate.lastname}`
+                  td(class='text-red')= roommate.debt === 0 ? '-' : roommate.debt
+                  td(class='text-green')= roommate.receive === 0 ? '-' : roommate.receive
+      form(action='/roommates' method='POST')
+         button(class='btn text-white mb-2' type='submit' name='addRoommate') Agregar Random Roommate 

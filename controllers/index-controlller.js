@@ -2,17 +2,17 @@
 =              IMPORT MODULES                =
 =============================================*/
 // local Modules
-// IMPORT MODELS HERE
-// Core Modules
-const fs = require("fs-extra")
+const { gdb } = require("../models/gastos-model")
+const { rdb } = require("../models/roommates-model")
 
 /*=============================================
 =                  HANDLERS                   =
 =============================================*/
-const renderIndex = (req, res) => {
-   const { gastos } = fs.readJSONSync("./db/gastos.json")
-   const { roommates } = fs.readJSONSync("./db/roommates.json")
-   res.render("index", { gastos, roommates })
+const renderIndex = async (req, res) => {
+   //  Get roommates, gastos from databases
+   const roommates = await rdb.getAllData()
+   const gastos = await gdb.getAllData()
+   res.render("index", { roommates, gastos })
 }
 
 module.exports = {

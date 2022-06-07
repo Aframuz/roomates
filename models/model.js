@@ -4,12 +4,10 @@ const path = require("path")
 class Model {
    constructor(name) {
       let _name = name
-      let _path = path.join(__dirname, "db", `${_name}.json`)
-      let _id = 1
+      let _path = path.join("db", `${_name}.json`)
+
       this.getName = () => _name
       this.getPath = () => _path
-      this.getId = () => _id
-      this.setId = () => _id++
 
       // INIT DB iife
       ;(async function init() {
@@ -24,10 +22,12 @@ class Model {
                // Write to file
                await fs.writeJson(_path, stump)
             } else {
-               console.log("The database already exists.")
+               console.log(`The database ${_name} already exists.`)
             }
          } catch (err) {
-            console.error(`There was an error:\n${err.message}`)
+            console.error(
+               `There was an error initializating the database:\n${err.message}`
+            )
          }
       })()
    }
@@ -44,27 +44,11 @@ class Model {
       }
    }
 
-   // Get data from DB by ID
-   async getDataById(id) {
-      try {
-         // Read the DB and parse it to obj
-         const data = await fs.readJson(this.getPath())
-         // Filter the data array by id and return the 1st item
-         const dataFound = data[this.getid()].find((item) => item.id === id)
-         return dataFound
-      } catch {
-         console.error(`There was an error getting data:\n${err.message}`)
-      }
-   }
-
    // Add data to DB
    async addData(data) {
       try {
          // Read the DB and parse it to obj
          const dataFromDB = await fs.readJson(this.getPath())
-         // Add ID to data obj and update internal ID
-         data.id = this.getId()
-         this.setId()
          // Add data to DB
          dataFromDB[this.getName()].push(data)
          // Write to DB
@@ -178,4 +162,4 @@ class Model {
    }
 }
 
-module.exports = Model
+module.exports = { Model }
