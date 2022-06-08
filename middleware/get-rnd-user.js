@@ -19,7 +19,7 @@ const getRndUser = async (req, res, next) => {
 
    // Generate user, store it in res.locals
    const user = {
-      id: nanoid(6),
+      _id: nanoid(6),
       name: results[0].name.first,
       lastname: results[0].name.last,
       debt: 0,

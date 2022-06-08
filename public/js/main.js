@@ -105,7 +105,34 @@ imprimir()
 /*=============================================
 =               REAFACTORIING                 =
 =============================================*/
-const editIcon = document.getElementById("edit-icon")
-const deleteIcon = document.getElementById("delete-icon")
+const editIcon = document.querySelectorAll(".edit-icon")
+const deleteIcon = document.querySelectorAll("delete-icon")
 
-editIcon.addEventListener("click", (event) => {})
+// For all edit icons
+editIcon.forEach((icon) => {
+   // Add CLICK eventListener to each icon
+   icon.addEventListener("click", (event) => {
+      console.log(`Edit icon clicked`)
+      // Get table row element where the icon is
+      const tr = event.target.parentElement.parentElement
+      const gastoData = {
+         name: tr.children[0].innerText,
+         description: tr.children[1].innerText,
+         amount: tr.children[2].innerText,
+      }
+      // Get roommate-modal element, and set selected value to the data of the gasto clicked
+      const roommateModal = document.querySelector("#roommate-modal")
+      for (let i = 0; roommateModal.options.length; i++) {
+         if (roommateModal.options[i].value == gastoData.name) {
+            roommateModal.selectedIndex = i
+            break
+         }
+      }
+      // Get description-modal element, and set value to the data of the gasto clicked
+      const descriptionModal = document.querySelector("#description-modal")
+      descriptionModal.value = gastoData.description
+      // Get amount-modal element, and set value to the data of the gasto clicked
+      const amountModal = document.querySelector("#amount-modal")
+      amountModal.value = gastoData.amount
+   })
+})

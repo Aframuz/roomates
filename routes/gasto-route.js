@@ -18,6 +18,11 @@ router.use(middleware.methodOverride)
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-router.route("/").get().post(gastoController.addGasto).put().delete()
+router
+   .route("/")
+   .get()
+   .post(gastoController.addGasto)
+   .put(gastoController.updateGasto)
+   .delete()
 
 module.exports = router

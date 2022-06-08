@@ -10,10 +10,10 @@ div(class='col-4')
                th Monto
             tbody(id='gastos')
                each gasto in gastos 
-                  tr
+                  tr(data-id=gasto._id)
                      td= gasto.name
                      td= gasto.description
                      td(class='text-red')= gasto.amount
                      td
-                        i(id='edit-icon' class="fa-solid fa-pen-to-square d-inline mx-1" data-bs-toggle='modal' data-bs-target='#edit-modal')
-                        i(id='delete-icon' class='fas fa-trash-alt d-inline mx-1')
+                        i(class='edit-icon' class="fa-solid fa-pen-to-square d-inline mx-1" data-bs-toggle='modal' data-bs-target='#edit-modal')
+                        i(class='delete-icon' class='fas fa-trash-alt d-inline mx-1')

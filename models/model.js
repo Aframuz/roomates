@@ -49,7 +49,7 @@ class Model {
          // Read the DB and parse it to obj
          const data = await fs.readJson(this.getPath())
          // Filter the data array by id and return the 1st item
-         const dataFound = data[this.getName()].find((item) => item.id === id)
+         const dataFound = data[this.getName()].find((item) => item._id === id)
          return dataFound
       } catch (err) {
          console.error(`There was an error getting data:\n${err.message}`)
@@ -78,7 +78,9 @@ class Model {
          const dataFromDB = await fs.readJson(this.getPath())
 
          // Ensure data with ID provided exists
-         const exist = dataFromDB[this.getName()].some((item) => item.id === id)
+         const exist = dataFromDB[this.getName()].some(
+            (item) => item._id === id
+         )
          if (!exist) {
             throw new Error("The data does not exist.")
          }
@@ -110,7 +112,9 @@ class Model {
          const dataFromDB = await fs.readJson(this.getPath())
 
          // Ensure data with ID provided exists
-         const exist = dataFromDB[this.getName()].some((item) => item.id === id)
+         const exist = dataFromDB[this.getName()].some(
+            (item) => item._id === id
+         )
          if (!exist) {
             throw new Error("The data does not exist.")
          }

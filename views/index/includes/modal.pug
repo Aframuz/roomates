@@ -8,7 +8,7 @@ div#edit-modal.modal.fade(tabIndex='-1' aria-labelledby='edit-modal-label' aria-
                h4 Editar Gasto 
                hr.bg-light.w-25.mx-auto
 
-               form(action='/gastos' method='POST')
+               form(id='edit-form' action=`/gastos/${roommates[0]._id}` method='POST')
                   input(type='hidden' name='id')
                   input(type='hidden' name='_method' value='PUT')
                   .form-group.d-flex.flex-column.align-items-center

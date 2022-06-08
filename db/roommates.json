@@ -1,11 +1,1 @@
-{
-   "roommates": [
-      {
-         "id": "Lw6E5O",
-         "name": "Maria",
-         "lastname": "Gallego",
-         "debt": 0,
-         "receive": 0
-      }
-   ]
-}
+{"roommates":[{"_id":"GqZZlZ","name":"Hope","lastname":"Pieters","debt":0,"receive":0},{"_id":"bfHaz8","name":"Filippa","lastname":"Larsen","debt":0,"receive":0},{"_id":"YyGrZG","name":"آرمیتا","lastname":"جعفری","debt":0,"receive":0}]}
