@@ -1,6 +1,8 @@
 /*=============================================
 =              IMPORT MODULES                =
 =============================================*/
+// 3rd party Modules
+const { nanoid } = require("nanoid")
 // local Modules
 const { gdb } = require("../models/gastos-model")
 const { rdb } = require("../models/roommates-model")
@@ -26,9 +28,10 @@ const addGasto = async (req, res, next) => {
    // Get data from request
    const gastos = req.body
    // get roommate from database by ID
-   const roommate = await rdb.getRoommateById(gastos.roommate)
+   const roommate = await rdb.getDataById(gastos.roommate)
    // Insert gasto into DB
    const gasto = {
+      _id: nanoid(6),
       name: `${roommate.name} ${roommate.lastname}`,
       description: gastos.description,
       amount: gastos.amount,
