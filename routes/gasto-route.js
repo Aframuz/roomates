@@ -2,19 +2,22 @@
 =              IMPORT MODULES                =
 =============================================*/
 // 3rd party Modules
+const { Router } = require("express")
 const express = require("express")
+const { append } = require("express/lib/response")
 // local Modules
 const gastoController = require("../controllers/gasto-controller")
-// const middleware = require("../middleware")
+const middleware = require("../middleware/method-override")
 
 /*=============================================
-=                  VARIABLES                  =
+=           VARIABLES & MIDDLEWARE            =
 =============================================*/
 const router = express.Router()
 
+router.use(middleware.methodOverride)
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-router.route("/").post(gastoController.addGasto).get()
+router.route("/").get().post(gastoController.addGasto).put().delete()
 
 module.exports = router

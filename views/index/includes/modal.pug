@@ -1,0 +1,32 @@
+div#edit-modal.modal.fade(tabIndex='-1' aria-labelledby='edit-modal-label' aria-hidden='true')
+   .modal-dialog(role='document')
+      .modal-content 
+         .modal-header 
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+         .modal-body
+            .border.rounded.p-2.m-auto.p-4 
+               h4 Editar Gasto 
+               hr.bg-light.w-25.mx-auto
+
+               form(action='/gastos' method='POST')
+                  input(type='hidden' name='id')
+                  input(type='hidden' name='_method' value='PUT')
+                  .form-group.d-flex.flex-column.align-items-center
+                     label(for='roommate-modal') Roommate 
+                     select#roommate-modal.form-control.w-50.mb-2(name='roommate')
+                        each roommate in roommates 
+                           - const fullName = `${roommate.name} ${roommate.lastname}`
+                           option(value=fullName)
+                              = fullName
+                  .form-group.d-flex.flex-column.align-items-center
+                     label(for='description-modal') Descripción 
+                     textarea#description-modal.form-control.w-50.mb-2(name='description') Artículos de limpieza
+                  .form-group.d-flex.flex-column.align-items-center
+                     label(for='amount-modal') Monto 
+                     input#amount-modal.form-control.w-50.mb-2(name='amount' value=20000)
+                  button(class='btn btn-primary' type='submit') Editar 
+       
+
+
+                  
+               

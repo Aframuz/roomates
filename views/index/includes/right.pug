@@ -12,5 +12,8 @@ div(class='col-4')
                each gasto in gastos 
                   tr
                      td= gasto.name
-                     td= gasto.comment
+                     td= gasto.description
                      td(class='text-red')= gasto.amount
+                     td
+                        i(id='edit-icon' class="fa-solid fa-pen-to-square d-inline mx-1" data-bs-toggle='modal' data-bs-target='#edit-modal')
+                        i(id='delete-icon' class='fas fa-trash-alt d-inline mx-1')

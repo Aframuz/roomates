@@ -92,21 +92,20 @@ const updateGasto = async () => {
    imprimir()
 }
 
-const editGasto = (id) => {
-   gastoEditing = id
-   const { roommate, descripcion, monto } = gastos.find((g) => g.id == id)
-   $("#roommatesSelectModal").val(roommate)
-   $("#descripcionModal").html(descripcion)
-   $("#montoModal").val(monto)
-}
+// const editGasto = (id) => {
+//    gastoEditing = id
+//    const { roommate, descripcion, monto } = gastos.find((g) => g.id == id)
+//    $("#roommatesSelectModal").val(roommate)
+//    $("#descripcionModal").html(descripcion)
+//    $("#montoModal").val(monto)
+// }
 
 imprimir()
 
 /*=============================================
 =               REAFACTORIING                 =
 =============================================*/
-const newRoommate = async () => {
-   console.log(`creating new roommate...`)
-   await fetch("/roommates", { method: "POST" })
-   window.location.reload()
-}
+const editIcon = document.getElementById("edit-icon")
+const deleteIcon = document.getElementById("delete-icon")
+
+editIcon.addEventListener("click", (event) => {})

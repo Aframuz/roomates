@@ -3,6 +3,7 @@ div(class='col-4')
       h4 Agregar Gasto 
       hr(class='bg-light w-25 mx-auto')
       form(class='d-flex flex-column align-items-center' action='/gastos' method='POST')
+         input(type='hidden' name='_method' value='POST')
          h6 Roommate 
          select(id='roommateSelect' class='form-control w-50 mb-2' name="roommate")
             each roommate in roommates

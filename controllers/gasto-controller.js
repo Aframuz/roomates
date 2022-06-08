@@ -19,16 +19,34 @@ const getGastos = async (req, res) => {
 }
 
 // POST
-const addGasto = async (req, res) => {
+const addGasto = async (req, res, next) => {
+   // Shortcircuit method
+   const method = res.locals._method
+   if (method !== "POST") next()
    // Get data from request
    const gastos = req.body
    // get roommate from database by ID
    const roommate = await rdb.getRoommateById(gastos.roommate)
-   console.log(`Roommate: ${roommate.name}`)
+   // Insert gasto into DB
+   const gasto = {
+      name: `${roommate.name} ${roommate.lastname}`,
+      description: gastos.description,
+      amount: gastos.amount,
+   }
+   await gdb.addData(gasto)
+   // Redirect to index
+   res.redirect("/")
 }
 
 // PUT
-const updateGasto = async (req, res) => {}
+const updateGasto = async (req, res, next) => {
+   // Shortcircuit method
+   const method = res.locals._method
+   if (method !== "PUT") next()
+   // Get data from request
+   const gastos = req.body
+   await gdb.updateData(gastos.id, gastos)
+}
 
 // DELETE
 const deleteGasto = async (req, res) => {}
