@@ -87,7 +87,7 @@ class Model {
 
          // Loop through DB, find the data with the ID provided, and update it
          for (const data of dataFromDB[this.getName()]) {
-            if (data.id === id) {
+            if (data._id === id) {
                dataFromDB[this.getName()].splice(
                   dataFromDB[this.getName()].indexOf(data),
                   1,

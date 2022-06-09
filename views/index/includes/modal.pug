@@ -8,23 +8,18 @@ div#edit-modal.modal.fade(tabIndex='-1' aria-labelledby='edit-modal-label' aria-
                h4 Editar Gasto 
                hr.bg-light.w-25.mx-auto
 
-               form(id='edit-form' action=`/gastos/${roommates[0]._id}` method='POST')
-                  input(type='hidden' name='id')
-                  input(type='hidden' name='_method' value='PUT')
+               form(id='edit-form' action=`/` method='POST')
+                  input(id='hidden-id' type='hidden' name='_id')
                   .form-group.d-flex.flex-column.align-items-center
                      label(for='roommate-modal') Roommate 
-                     select#roommate-modal.form-control.w-50.mb-2(name='roommate')
-                        each roommate in roommates 
-                           - const fullName = `${roommate.name} ${roommate.lastname}`
-                           option(value=fullName)
-                              = fullName
+                     input#roommate-modal.form-control.w-50.mb-2(type='text' name='name')
                   .form-group.d-flex.flex-column.align-items-center
                      label(for='description-modal') Descripción 
                      textarea#description-modal.form-control.w-50.mb-2(name='description') Artículos de limpieza
                   .form-group.d-flex.flex-column.align-items-center
                      label(for='amount-modal') Monto 
                      input#amount-modal.form-control.w-50.mb-2(name='amount' value=20000)
-                  button(class='btn btn-primary' type='submit') Editar 
+                  button(id='edit-btn' class='btn btn-primary' type='submit') Editar 
        
 
 

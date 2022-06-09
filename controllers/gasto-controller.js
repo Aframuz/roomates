@@ -21,13 +21,7 @@ const getGastos = async (req, res) => {
 }
 
 // POST
-const addGasto = async (req, res, next) => {
-   // Shortcircuit method
-   const method = res.locals._method
-   if (method !== "POST") {
-      next()
-      return
-   }
+const addGasto = async (req, res) => {
    // Get data from request
    const gastos = req.body
    // get roommate from database by ID
@@ -41,22 +35,17 @@ const addGasto = async (req, res, next) => {
    }
    await gdb.addData(gasto)
    // Redirect to index
-   res.redirect("/")
+   res.render("index", { gastos })
 }
 
 // PUT
-const updateGasto = async (req, res, next) => {
-   // Shortcircuit method
-   const method = res.locals._method
-   console.log(`inside updateGasto`)
-   if (method !== "PUT") {
-      next()
-      return
-   }
-   console.log(`We're inside put Handler`)
-   // Get data from request
-   const gastos = req.body
-   await gdb.updateData(gastos.id, gastos)
+const updateGasto = async (req, res) => {
+   const _id = req.params.id
+   const gastoToUpdate = req.body
+
+   await gdb.updateDataById(_id, gastoToUpdate)
+
+   res.json({ message: "Gasto updated" })
 }
 
 // DELETE
