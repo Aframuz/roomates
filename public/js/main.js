@@ -106,7 +106,8 @@ const getGastos = async () => {
 =               REAFACTORIING                 =
 =============================================*/
 const editIcon = document.querySelectorAll(".edit-icon")
-const deleteIcon = document.querySelectorAll("delete-icon")
+const editForm = document.querySelector("#edit-form")
+const deleteIcon = document.querySelectorAll(".delete-icon")
 
 // For all edit icons
 editIcon.forEach((icon) => {
@@ -136,8 +137,6 @@ editIcon.forEach((icon) => {
 })
 
 // PUT request
-const editForm = document.querySelector("#edit-form")
-
 editForm.addEventListener("submit", async (event) => {
    // Prevent form from submitting
    event.preventDefault()
@@ -157,8 +156,31 @@ editForm.addEventListener("submit", async (event) => {
          body: JSON.stringify(FormDataObj),
       })
       const data = await res.json()
-      console.log(data)
+      location.reload()
    } catch (error) {
       console.log(error)
    }
+})
+
+// DELETE request
+deleteIcon.forEach((icon) => {
+   icon.addEventListener("click", async (event) => {
+      console.log("clicked")
+      const tr = event.target.parentElement.parentElement
+      const gastoData = {
+         _id: tr.dataset.id,
+         name: tr.children[0].innerText,
+         description: tr.children[1].innerText,
+         amount: tr.children[2].innerText,
+      }
+      try {
+         const res = await fetch(`/gastos/${gastoData._id}`, {
+            method: "DELETE",
+         })
+         const data = await res.json()
+         location.reload()
+      } catch (error) {
+         console.log(error)
+      }
+   })
 })

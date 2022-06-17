@@ -17,7 +17,7 @@ const getGastos = async (req, res) => {
    // Get gastos from database
    const gastos = await gdb.getAllData()
    // Redirect to index
-   res.redirect("/", { gastos })
+   res.redirect("/")
 }
 
 // POST
@@ -35,7 +35,7 @@ const addGasto = async (req, res) => {
    }
    await gdb.addData(gasto)
    // Redirect to index
-   res.render("index", { gastos })
+   res.redirect("/")
 }
 
 // PUT
@@ -49,7 +49,12 @@ const updateGasto = async (req, res) => {
 }
 
 // DELETE
-const deleteGasto = async (req, res) => {}
+const deleteGasto = async (req, res) => {
+   const _id = req.params.id
+   await gdb.deleteDataById(_id)
+
+   res.json({ message: "Gasto deleted" })
+}
 
 module.exports = {
    getGastos,

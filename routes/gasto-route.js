@@ -14,7 +14,11 @@ const router = express.Router()
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-router.route("/:id").put(gastoController.updateGasto)
-router.route("/").post(gastoController.addGasto)
+router
+   .route("/:id")
+   .put(gastoController.updateGasto)
+   .delete(gastoController.deleteGasto)
+
+router.route("/").post(gastoController.addGasto).get(gastoController.getGastos)
 
 module.exports = router

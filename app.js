@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 /*=============================================
-=                 MIDDLEWARE                  =
+=         MIDDLEWARE & APP SETTINGS           =
 =============================================*/
 // Set Bootstrap path
 app.use(
