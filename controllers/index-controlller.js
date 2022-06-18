@@ -12,6 +12,8 @@ const renderIndex = async (req, res) => {
    //  Get roommates, gastos from databases
    const roommates = await rdb.getAllData()
    const gastos = await gdb.getAllData()
+   // Calculate debts
+
    res.render("index", { roommates, gastos })
 }
 

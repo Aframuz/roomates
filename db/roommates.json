@@ -1,11 +1,1 @@
-{
-   "roommates": [
-      {
-         "_id": "GqZZlZ",
-         "name": "Hope",
-         "lastname": "Pieters",
-         "debt": 0,
-         "receive": 0
-      }
-   ]
-}
+{"roommates":[{"_id":"GqZZlZ","name":"Hope","lastname":"Pieters","debt":7500,"receive":7500},{"_id":"sPZTRN","name":"Moisés","lastname":"Cardoso","debt":5000,"receive":5000}]}

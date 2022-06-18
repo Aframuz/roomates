@@ -17,7 +17,7 @@ const getGastos = async (req, res) => {
    // Get gastos from database
    const gastos = await gdb.getAllData()
    // Redirect to index
-   res.redirect("/")
+   res.json(gastos)
 }
 
 // POST

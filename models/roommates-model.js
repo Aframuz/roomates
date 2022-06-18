@@ -15,6 +15,9 @@ class RoommateDB extends Model {
    }
 
    /*=====  METHODS  ======*/
+   numberOfRoommates() {
+      return this.getLength()
+   }
 }
 
 const rdb = new RoommateDB("roommates")

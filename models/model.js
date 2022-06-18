@@ -5,10 +5,12 @@ class Model {
    constructor(name) {
       let _name = name
       let _path = path.join("db", `${_name}.json`)
+      let _length = 1
 
       this.getName = () => _name
       this.getPath = () => _path
-
+      this.getLength = () => _length
+      this.setLength = (length) => (_length = length)
       // INIT DB iife
       ;(async function init() {
          try {
@@ -23,6 +25,9 @@ class Model {
                await fs.writeJson(_path, stump)
             } else {
                console.log(`The database ${_name} already exists.`)
+               // Set length to length of DB
+               const l = fs.readJsonSync(_path)[_name].length
+               _length = l
             }
          } catch (err) {
             console.error(
@@ -63,6 +68,7 @@ class Model {
          const dataFromDB = await fs.readJson(this.getPath())
          // Add data to DB
          dataFromDB[this.getName()].push(data)
+         this.setLength(dataFromDB[this.getName()].length)
          // Write to DB
          await fs.writeJson(this.getPath(), dataFromDB)
          console.log(`Data added to ${this.getName()}`)
@@ -126,6 +132,7 @@ class Model {
                   dataFromDB[this.getName()].indexOf(data),
                   1
                )
+               this.setLength(dataFromDB[this.getName()].length)
                break
             }
          }
