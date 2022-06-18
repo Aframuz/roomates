@@ -1,18 +1,18 @@
-div(class='col-4')
-   div(class='border rounded p-2 m-auto p-4')
+.col-4
+   .border.rounded.p-2.m-auto.p-4
       h4 Agregar Gasto 
-      hr(class='bg-light w-25 mx-auto')
-      form(class='d-flex flex-column align-items-center' action='/gastos' method='POST')
+      hr.bg-light.w-25.mx-auto
+      form.d-flex.flex-column.align-items-center(action='/gastos' method='POST')
          h6 Roommate 
-         select(id='roommateSelect' class='form-control w-50 mb-2' name="roommate")
+         select#roommateSelect.form-control.w-50.mb-2(name='roommate')
             each roommate in roommates
                option(value=roommate._id)
                   = roommate.name + ' ' + roommate.lastname
-         h6 Descripción 
-         textarea(id='descripcion' class='form-control w-50 mb-2' name="description") Articulos de limpieza 
+         h6 Descripción       
+         textarea#description.form-control.w-50.mb-2(name='description') Articulos de limpieza
          h6 Monto 
-         input(id='monto' class='form-control w-50 mb-2' name="amount" value='1500')
-         button(class='btn text-white m-auto' type='submit') Agregar
+         input#amount.form-control.w-50.mb-2(name='amount' value='1500')
+         button.btn.text-white.m-auto(type='submit') Agregar
       
          
          

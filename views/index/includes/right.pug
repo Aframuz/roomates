@@ -1,19 +1,19 @@
-div(class='col-4')
-   div(class='border rounded p-2 m-auto p-4')
+.col-4
+   .border.rounded.p-2.m-auto.p-4
       div 
          h4 Historial 
-         hr(class='bg-light w-25 mx-auto')
-         table(class='table text-white')
+         hr.bg-light.w-25.mx-auto
+         table.table.text-white
             thead
                th Nombre 
                th Comentario 
                th Monto
-            tbody(id='gastos')
+            tbody#gastos
                each gasto in gastos 
                   tr(data-id=gasto._id)
                      td= gasto.name
                      td= gasto.description
-                     td(class='text-red')= gasto.amount
+                     td.text-red= gasto.amount
                      td
-                        i(class='edit-icon' class="fa-solid fa-pen-to-square d-inline mx-1" data-bs-toggle='modal' data-bs-target='#edit-modal')
-                        i(class='delete-icon' class='fas fa-trash-alt d-inline mx-1')
+                        i.edit-icon.fa-solid.fa-pen-to-square.d-inline.mx-1(data-bs-toggle='modal' data-bs-target='#edit-modal')
+                        i.delete-icon.fas.fa-trash-alt.d-inline.mx-1

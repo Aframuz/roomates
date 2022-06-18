@@ -1,1 +1,16 @@
-{"gastos":[{"_id":"l2Ieaz","name":"Hope Pieters","description":"Articulos de limpieza ","amount":"1500"},{"_id":"VSbVp1","name":"Filippa Larsen","description":"Articulos de limpieza ","amount":"1500"},{"_id":"HR5BNp","name":"آرمیتا جعفری","description":"Articulos de limpieza ","amount":"50000"}]}
+{
+   "gastos": [
+      {
+         "_id": "VSbVp1",
+         "name": "Filippa Larsen",
+         "description": "Articulos de limpieza ",
+         "amount": "1500"
+      },
+      {
+         "_id": "HR5BNp",
+         "name": "آرمیتا جعفری",
+         "description": "Articulos de limpieza ",
+         "amount": "50000"
+      }
+   ]
+}
