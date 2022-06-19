@@ -61,6 +61,28 @@ Rutas que debes crear en tu servidor:
 
 ## Notas
 
+### Dónde encontrar cada requerimiento
+
+1. `/models/model.js` Cada método de la clase utiliza fs-extra para leer/escribit .json en `/db`. [Ejemplo](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/models/model.js#L35)
+
+2. `/controllers/` `/models/` `/middleware/` `/public/js`. Básicamente cada vez que se ocupa una `async function`. [Ejemplo](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/models/model.js#L42)
+
+3. `/routes/roommate-route.js` ejecuta la función asíncrona en `/middleware/get-rnd-user.js` para obtener un usuario de la random user API y luego `/controllers/roommate-controller.js` para guardarlo en la base de datos. [Función que genera usuario](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/middleware/get-rnd-user.js#L12), [Función que guarda usuario en base de datos](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/controllers/roommate-controller.js#L24).
+
+4. Todas las rutas están en `/routes`. En específico:
+
+   -  [GET gastos](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/controllers/gasto-controller.js#L14)
+   -  [POST gastos](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/controllers/gasto-controller.js#L27)
+   -  [PUT gastos](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/controllers/gasto-controller.js#L52)
+   -  [DELETE gastos](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/controllers/gasto-controller.js#L69)
+   -  [GET roommates](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/controllers/roommate-controller.js#L11)
+
+   El cálculo de los gastos se encuentra en una [función aparte](https://github.com/Aframuz/roomates/blob/e665818c2d3e095444d268ab24af1515022889d4/middleware/calculate-debt.js#L5)
+
+5. Todas las funciones dentro de `/controllers` utilizan el método otorgado por Express `res.status` para indicar el código HTTP correspondiente.
+
+6. ?
+
 ### Alternativas usadas
 
 -  **pnpm** en vez de npm
@@ -71,3 +93,4 @@ Rutas que debes crear en tu servidor:
 ### TODO
 
 -  [ ] cambiar error status boilerplate en controllers
+-  [ ] alternativa para importar bootstrap/jQuery/font-awesome
