@@ -66,6 +66,7 @@ Rutas que debes crear en tu servidor:
 -  **pnpm** en vez de npm
 -  **nanoid** en vez de UUID
 -  **fs-extra** en vez de fs
+-  **Nodev18 fecth** en vez de axios o client-side fecth, axios está disponible en middleware
 
 ### TODO
 
