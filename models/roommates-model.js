@@ -3,11 +3,9 @@
 =============================================*/
 // Local Modules
 const { Model } = require("./model")
-// Core Modules
-const fs = require("fs-extra")
 
 /*=============================================
-=                  VARIABLES                  =
+=                 DB INSTANCE                 =
 =============================================*/
 class RoommateDB extends Model {
    constructor(name) {
@@ -15,33 +13,49 @@ class RoommateDB extends Model {
    }
 
    /*=====  METHODS  ======*/
+   // Get number of roommates in DB
    numberOfRoommates() {
       return this.getLength()
    }
 
+   // Add expense id to expenses array in specific roommate
    async addGastoToRoommate(idRommate, idGasto) {
-      const roommate = await this.getDataById(idRommate)
-      roommate["expenses"].push(idGasto)
-      await this.updateDataById(idRommate, roommate)
+      try {
+         // Get roommmate by ID
+         const roommate = await this.getDataById(idRommate)
+         // Add expense id to expenses array
+         roommate["expenses"].push(idGasto)
+         // Update roommate DB
+         await this.updateDataById(idRommate, roommate)
+      } catch (err) {
+         // Log error
+         console.log(err)
+      }
    }
 
    async deleteGastoReference(idGasto) {
-      // Get all roommates
-      const roommates = await this.getAllData()
-      // Find roomate with idGasto in expenses
-      const roommateToUpdate = roommates.find((roommate) =>
-         roommate.expenses.includes(idGasto)
-      )
-      // Remove idGasto from expenses
-      roommateToUpdate.expenses.splice(
-         roommateToUpdate.expenses.indexOf(idGasto),
-         1
-      )
-      // Update roommates DB
-      await this.updateDataById(roommateToUpdate._id, roommateToUpdate)
+      try {
+         // Get all roommates
+         const roommates = await this.getAllData()
+         // Find roomate with idGasto in expenses
+         const roommateToUpdate = roommates.find((roommate) =>
+            roommate.expenses.includes(idGasto)
+         )
+         // Remove idGasto from expenses
+         roommateToUpdate.expenses.splice(
+            roommateToUpdate.expenses.indexOf(idGasto),
+            1
+         )
+         // Update roommates DB
+         await this.updateDataById(roommateToUpdate._id, roommateToUpdate)
+      } catch (err) {
+         // Log error
+         console.log(err)
+      }
    }
 }
 
+// Initialize DB
 const rdb = new RoommateDB("roommates")
 
 module.exports = { rdb }

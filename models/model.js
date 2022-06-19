@@ -1,16 +1,26 @@
+/*=============================================
+=              IMPORT MODULES                =
+=============================================*/
+// Local Modules
 const fs = require("fs-extra")
 const path = require("path")
 
+/*=============================================
+=                 DB INSTANCE                 =
+=============================================*/
 class Model {
    constructor(name) {
+      // Private name, path and length of DB
       let _name = name
       let _path = path.join("db", `${_name}.json`)
-      let _length = 1
+      let _length = 0
 
+      // Getters and setters of private variables
       this.getName = () => _name
       this.getPath = () => _path
       this.getLength = () => _length
       this.setLength = (length) => (_length = length)
+
       // INIT DB iife
       ;(async function init() {
          try {
