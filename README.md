@@ -66,3 +66,7 @@ Rutas que debes crear en tu servidor:
 -  **pnpm** en vez de npm
 -  **nanoid** en vez de UUID
 -  **fs-extra** en vez de fs
+
+### TODO
+
+-  [ ] cambiar error status boilerplate en controllers
