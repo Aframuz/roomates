@@ -58,3 +58,11 @@ Rutas que debes crear en tu servidor:
 5. Devolver los códigos de estado HTTP correspondientes a cada situación.
 
 6. Enviar un correo electrónico a todos los roommates cuando se registre un nuevo gasto. Se recomienda agregar a la lista de correos su correo personal para verificar esta funcionalidad. **(Opcional)**
+
+## Notas
+
+### Alternativas usadas
+
+-  **pnpm** en vez de npm
+-  **nanoid** en vez de UUID
+-  **fs-extra** en vez de fs
