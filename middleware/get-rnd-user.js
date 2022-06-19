@@ -3,6 +3,7 @@
 =============================================*/
 // 3rd party Modules
 const { nanoid } = require("nanoid")
+const axios = require("axios").default
 
 /*=============================================
 =                 MIDDLEWARE                  =
@@ -10,12 +11,15 @@ const { nanoid } = require("nanoid")
 // Get random user from API_URL
 const getRndUser = async (req, res, next) => {
    // API Url and Query Params
-   // const API_URL = "https://randomuser.me/api/"
    const API_OPTIONS = new URLSearchParams({ inc: "name" })
 
-   // API Call
+   // API Call with fetch
    const response = await fetch(`${process.env.API_URL}?${API_OPTIONS}`)
    const { results } = await response.json()
+
+   // API Call with Axios
+   // const response = await axios.get(`${process.env.API_URL}?${API_OPTIONS}`)
+   // const { results } = await response.data
 
    // Generate user, store it in res.locals
    const user = {
