@@ -54,6 +54,7 @@ const updateGasto = async (req, res) => {
 const deleteGasto = async (req, res) => {
    const _id = req.params.id
    await gdb.deleteDataById(_id)
+   await rdb.deleteGastoReference(_id)
 
    res.json({ message: "Gasto deleted" })
 }

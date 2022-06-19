@@ -24,6 +24,22 @@ class RoommateDB extends Model {
       roommate["expenses"].push(idGasto)
       await this.updateDataById(idRommate, roommate)
    }
+
+   async deleteGastoReference(idGasto) {
+      // Get all roommates
+      const roommates = await this.getAllData()
+      // Find roomate with idGasto in expenses
+      const roommateToUpdate = roommates.find((roommate) =>
+         roommate.expenses.includes(idGasto)
+      )
+      // Remove idGasto from expenses
+      roommateToUpdate.expenses.splice(
+         roommateToUpdate.expenses.indexOf(idGasto),
+         1
+      )
+      // Update roommates DB
+      await this.updateDataById(roommateToUpdate._id, roommateToUpdate)
+   }
 }
 
 const rdb = new RoommateDB("roommates")
