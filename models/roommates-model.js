@@ -18,6 +18,21 @@ class RoommateDB extends Model {
       return this.getLength()
    }
 
+   // Get all emails from roommates
+   async getAllEmails() {
+      try {
+         // Get all roommates
+         const roommates = await this.getAllData()
+         // Get all emails from roommates
+         const emails = roommates.map((roommate) => roommate.email)
+         // Return emails
+         return emails
+      } catch (err) {
+         // Log error
+         console.log(err)
+      }
+   }
+
    // Add expense id to expenses array in specific roommate
    async addGastoToRoommate(idRommate, idGasto) {
       try {

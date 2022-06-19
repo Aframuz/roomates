@@ -12,7 +12,7 @@ const axios = require("axios").default
 const getRndUser = async (req, res, next) => {
    try {
       // API Url and Query Params
-      const API_OPTIONS = new URLSearchParams({ inc: "name" })
+      const API_OPTIONS = new URLSearchParams({ inc: "name,email" })
 
       // API Call with fetch
       const response = await fetch(`${process.env.API_URL}?${API_OPTIONS}`)
@@ -27,6 +27,7 @@ const getRndUser = async (req, res, next) => {
          _id: nanoid(6),
          name: results[0].name.first,
          lastname: results[0].name.last,
+         email: results[0].email,
          expenses: [],
       }
       res.locals.user = user

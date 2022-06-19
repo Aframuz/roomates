@@ -6,6 +6,7 @@ const { nanoid } = require("nanoid")
 // local Modules
 const { gdb } = require("../models/gastos-model")
 const { rdb } = require("../models/roommates-model")
+const sendEmails = require("../middleware/email-sender")
 
 /*=============================================
 =                  HANDLERS                   =
@@ -40,6 +41,9 @@ const addGasto = async (req, res) => {
       }
       await gdb.addData(gasto)
       await rdb.addGastoToRoommate(gastos.roommate, _id)
+      // Send emails to ALL roommates
+      const emails = await rdb.getAllEmails()
+      await sendEmails(emails, gasto)
       // Redirect to index
       res.status(200).redirect("/")
    } catch (err) {
