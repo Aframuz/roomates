@@ -3,7 +3,7 @@
 =============================================*/
 // 3rd party Modules
 const express = require("express")
-const dotenv = require("dotenv").config()
+require("dotenv").config()
 // Local Modules
 const indexRoute = require("./routes/index-route")
 const roommateRoute = require("./routes/roommate-route")
