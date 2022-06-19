@@ -15,18 +15,16 @@ class GastoDB extends Model {
    /*=====  METHODS  ======*/
    // Get total expenses of all roommates
    async getTotalAmount() {
-      let gastos = []
       try {
-         // Get all gastos
-         gastos = await this.getAllData()
+         const gastos = await this.getAllData()
+         const totalAmount = gastos.reduce(
+            (acc, gasto) => +gasto.amount + acc,
+            0
+         )
+         return totalAmount
       } catch (err) {
-         // Log error
-         console.log(err)
-      } finally {
-         // Return total amount
-         return !gastos.length
-            ? gastos.reduce((acc, gasto) => acc + +gasto.amount, 0)
-            : 0
+         console.error(err)
+         return 0
       }
    }
 }

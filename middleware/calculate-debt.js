@@ -14,6 +14,7 @@ calculateDebt = (options) => {
 
    // Calculate split amount that every roommate should debt each other
    const split = totalAmount / numOfRoommates
+
    // Take every roommate, format it and add debt and receive
    const formattedRoommates = roommatesRaw.map((roommate) => {
       let debt, receive
