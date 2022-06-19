@@ -18,6 +18,12 @@ class RoommateDB extends Model {
    numberOfRoommates() {
       return this.getLength()
    }
+
+   async addGastoToRoommate(idRommate, idGasto) {
+      const roommate = await this.getDataById(idRommate)
+      roommate["expenses"].push(idGasto)
+      await this.updateDataById(idRommate, roommate)
+   }
 }
 
 const rdb = new RoommateDB("roommates")

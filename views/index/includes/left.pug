@@ -11,7 +11,7 @@
             each roommate in roommates
                tr
                   td= `${roommate.name} ${roommate.lastname}`
-                  td.text-red= roommate.debt === 0 ? '-' : roommate.debt
-                  td.text-green= roommate.receive === 0 ? '-' : roommate.receive
+                  td.text-danger= roommate.debt === 0 ? '-' : roommate.debt
+                  td.text-success= roommate.receive === 0 ? '-' : roommate.receive
       form(action='/roommates' method='POST')
          button.btn.text-white.mb-2(type='submit' name='addRoommate') Agregar Random Roommate

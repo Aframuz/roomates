@@ -18,10 +18,10 @@ const addRoommate = async (req, res) => {
 }
 
 // GET getUsers route
-const getRoommates = (req, res) => {
+const getRoommates = async (req, res) => {
    // render view
-   console.log(`redirected to index`)
-   res.redirect("/")
+   const roommates = await rdb.getAllData()
+   res.json({ roommates })
 }
 
 module.exports = {

@@ -24,16 +24,18 @@ const getGastos = async (req, res) => {
 const addGasto = async (req, res) => {
    // Get data from request
    const gastos = req.body
-   // get roommate from database by ID
+   // get roommate from database by ID (gastos.roommate === _id)
    const roommate = await rdb.getDataById(gastos.roommate)
    // Insert gasto into DB
+   const _id = nanoid(6) // resusable id
    const gasto = {
-      _id: nanoid(6),
+      _id: _id,
       name: `${roommate.name} ${roommate.lastname}`,
       description: gastos.description,
       amount: gastos.amount,
    }
    await gdb.addData(gasto)
+   await rdb.addGastoToRoommate(gastos.roommate, _id)
    // Redirect to index
    res.redirect("/")
 }

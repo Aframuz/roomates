@@ -6,8 +6,7 @@
          h6 Roommate 
          select#roommateSelect.form-control.w-50.mb-2(name='roommate')
             each roommate in roommates
-               option(value=roommate._id)
-                  = roommate.name + ' ' + roommate.lastname
+               option(value=roommate._id)= roommate.name + ' ' + roommate.lastname 
          h6 Descripción       
          textarea#description.form-control.w-50.mb-2(name='description') Articulos de limpieza
          h6 Monto 
