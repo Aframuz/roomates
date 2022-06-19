@@ -1,1 +1,28 @@
-{"roommates":[{"_id":"3ptcxr","name":"Juho","lastname":"Saari","expenses":["67DsN6"]},{"_id":"qX8ZMr","name":"Felix","lastname":"Fuller","expenses":["1hMnnF"]},{"_id":"Ygfu7v","name":"Torsten","lastname":"Rudloff","expenses":[]},{"_id":"Xct01u","name":"Yasemin","lastname":"Bayındır","expenses":[]}]}
+{
+   "roommates": [
+      {
+         "_id": "3ptcxr",
+         "name": "Juho",
+         "lastname": "Saari",
+         "expenses": ["67DsN6"]
+      },
+      {
+         "_id": "qX8ZMr",
+         "name": "Felix",
+         "lastname": "Fuller",
+         "expenses": ["1hMnnF"]
+      },
+      {
+         "_id": "Ygfu7v",
+         "name": "Torsten",
+         "lastname": "Rudloff",
+         "expenses": []
+      },
+      {
+         "_id": "Xct01u",
+         "name": "Yasemin",
+         "lastname": "Bayındır",
+         "expenses": []
+      }
+   ]
+}

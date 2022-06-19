@@ -1,1 +1,16 @@
-{"gastos":[{"_id":"67DsN6","name":"Juho Saari","description":"Articulos de limpieza","amount":"50000"},{"_id":"1hMnnF","name":"Felix Fuller","description":"Articulos de limpieza","amount":"20000"}]}
+{
+   "gastos": [
+      {
+         "_id": "67DsN6",
+         "name": "Juho Saari",
+         "description": "Articulos de limpieza",
+         "amount": "50000"
+      },
+      {
+         "_id": "1hMnnF",
+         "name": "Felix Fuller",
+         "description": "Articulos de limpieza",
+         "amount": "20000"
+      }
+   ]
+}
